@@ -39,15 +39,10 @@ stages:
 
   DriftDetection:
     actions:
-      # Create a fake snapshot to test drift detection
-      - type: shell
-        command: echo '{"snapshot":{}}' > ${SNAPSHOT_FILE}
-
-      # This will detect drift and should fail
-      - type: liquibase
+        if: "exists('${SNAPSHOT_FILE}', false) && ${LB_TEST_DRIFT} == 'T'"
         command: diff
         globalArgs: { outputfile: "${LB_BASE_DIR}/${DIFF_FILE}" }
-        cmdArgs: { drift-severity: "1", drift-severity-changed: "1", drift-severity-missing: "1", drift-severity-unexpected: "1", report-enabled: "true", report-path: "${LB_BASE_DIR}", report-name: "${DRIFT_REPORT}", referenceURL: "offline:h2?snapshot=${SNAPSHOT_FILE}", format: json }
+        cmdArgs: { drift-severity: "1", report-enabled: "true", report-path: "${LB_BASE_DIR}", report-name: "${DRIFT_REPORT}", referenceURL: "offline:h2?snapshot=${SNAPSHOT_FILE}", format: json }
 
   Deploy:
     actions:
