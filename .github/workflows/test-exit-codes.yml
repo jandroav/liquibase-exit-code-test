@@ -26,10 +26,20 @@ jobs:
           LIQUIBASE_COMMAND_USERNAME: "sa"
           LIQUIBASE_COMMAND_PASSWORD: ""
           LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelog.xml"
+
+          LB_BASE_DIR: ./
+          LB_ENVIRONMENT: DEV
           LB_TEST_CHECKS: "T"
           LB_TEST_DRIFT: "T"
-          LB_BASE_DIR: "."
-          LB_ENVIRONMENT: "DEV"
+          LIQUIBASE_COMMAND_CHECKS_RUN_CHECKS_OUTPUT: issues
+          LIQUIBASE_DBCLHISTORY_ENABLED: true
+          LIQUIBASE_LOG_FILE: ./liquibase.dev.log.json
+          LIQUIBASE_LOG_FORMAT: json_pretty
+          LIQUIBASE_LOG_LEVEL: warning
+          LIQUIBASE_MIRROR_CONSOLE_MESSAGES_TO_LOG: false
+          LIQUIBASE_REPORTS_OPEN: false
+          LIQUIBASE_SEARCH_PATH: ./
+          LIQUIBASE_SHOW_BANNER: false
 
   test-liquibase-500:
     name: Test Liquibase 5.0.0 (Exit code issue)
@@ -51,7 +61,17 @@ jobs:
           LIQUIBASE_COMMAND_USERNAME: "sa"
           LIQUIBASE_COMMAND_PASSWORD: ""
           LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelog.xml"
+
+          LB_BASE_DIR: ./
+          LB_ENVIRONMENT: DEV
           LB_TEST_CHECKS: "T"
           LB_TEST_DRIFT: "T"
-          LB_BASE_DIR: "."
-          LB_ENVIRONMENT: "DEV"
+          LIQUIBASE_COMMAND_CHECKS_RUN_CHECKS_OUTPUT: issues
+          LIQUIBASE_DBCLHISTORY_ENABLED: true
+          LIQUIBASE_LOG_FILE: ./liquibase.dev.log.json
+          LIQUIBASE_LOG_FORMAT: json_pretty
+          LIQUIBASE_LOG_LEVEL: warning
+          LIQUIBASE_MIRROR_CONSOLE_MESSAGES_TO_LOG: false
+          LIQUIBASE_REPORTS_OPEN: false
+          LIQUIBASE_SEARCH_PATH: ./
+          LIQUIBASE_SHOW_BANNER: false
