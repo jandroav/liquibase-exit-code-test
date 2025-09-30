@@ -27,17 +27,15 @@ stages:
 
   PolicyChecks:
     actions:
-      # This will fail if no checks-settings.conf exists
+      # Show enabled checks
       - type: liquibase
-        if: "${LB_TEST_CHECKS} == T"
         command: checks show
         cmdArgs: { check-status: "enabled" }
 
-      # This will fail if checks fail
+      # This will fail - force run checks with strict severity
       - type: liquibase
-        if: "${LB_TEST_CHECKS} == T"
         command: checks run
-        cmdArgs: { report-enabled: "true", report-path: "${LB_BASE_DIR}", report-name: "${CHECKS_REPORT}", checks-scope: "changelog, database", changeset-filter: "pending", auto-update: "on" }
+        cmdArgs: { checks-scope: "changelog", auto-update: "on" }
 
   DriftDetection:
     actions:
