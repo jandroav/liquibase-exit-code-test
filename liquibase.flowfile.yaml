@@ -43,7 +43,7 @@ stages:
         if: "exists('${SNAPSHOT_FILE}', false) && ${LB_TEST_DRIFT} == 'T'"
         command: diff
         globalArgs: { outputfile: "${LB_BASE_DIR}/${DIFF_FILE}" }
-        cmdArgs: { drift-severity: "1", report-enabled: "true", report-path: "${LB_BASE_DIR}", report-name: "${DRIFT_REPORT}", referenceURL: "offline:postgres?snapshot=${SNAPSHOT_FILE}", format: json }
+        cmdArgs: { drift-severity: "1", report-enabled: "true", report-path: "${LB_BASE_DIR}", report-name: "${DRIFT_REPORT}", referenceURL: "offline:h2?snapshot=${SNAPSHOT_FILE}", format: json }
 
   Deploy:
     actions:
