@@ -12,11 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Liquibase 4.33
-        uses: ./actions/setup-liquibase
-        with:
-          version: "4.33.0"
-          edition: "secure"
+      - name: Setup Liquibase
+        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v1
 
       - name: Run Liquibase Flow (4.33)
         run: liquibase flow --flow-file=liquibase.flowfile.yaml
@@ -47,11 +44,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Liquibase 5.0.0
-        uses: ./actions/setup-liquibase
-        with:
-          version: "5.0.0"
-          edition: "secure"
+      - name: Setup Liquibase
+        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v2
 
       - name: Run Liquibase Flow (5.0.0)
         run: liquibase flow --flow-file=liquibase.flowfile.yaml
