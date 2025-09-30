@@ -34,18 +34,11 @@ stages:
         cmdArgs: { label-filter: "${LB_LABELS}" }
   PolicyChecks:
     actions:
-      #
-      # Show policy checks
-      # https://docs.liquibase.com/liquibase-pro/policy-checks/home.html
-      #
       - type: liquibase
         if: "${LB_TEST_CHECKS} == T"
         command: checks show
         cmdArgs: { check-status: "enabled" }
-      #
-      # Run policy checks
-      # https://docs.liquibase.com/liquibase-pro/policy-checks/home.html
-      #
+
       - type: liquibase
         if: "${LB_TEST_CHECKS} == T"
         command: checks run
@@ -63,6 +56,7 @@ stages:
         if: "status.changesetCount == 0"
         command: exit
         cmdArgs: { exitCode: "0", exitMessage: "Database is current!" }
+
       - type: liquibase
         command: update
         cmdArgs: { report-enabled: "false" }
