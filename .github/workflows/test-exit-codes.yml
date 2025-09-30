@@ -28,6 +28,8 @@ jobs:
           LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelog.xml"
           LB_TEST_CHECKS: "T"
           LB_TEST_DRIFT: "T"
+          LB_BASE_DIR: "."
+          LB_ENVIRONMENT: "DEV"
 
   test-liquibase-500:
     name: Test Liquibase 5.0.0 (Exit code issue)
@@ -51,3 +53,5 @@ jobs:
           LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelog.xml"
           LB_TEST_CHECKS: "T"
           LB_TEST_DRIFT: "T"
+          LB_BASE_DIR: "."
+          LB_ENVIRONMENT: "DEV"
