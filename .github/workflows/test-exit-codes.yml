@@ -1,0 +1,53 @@
+name: Test Liquibase Exit Codes
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  test-liquibase-433:
+    name: Test Liquibase 4.33 (Expected to fail properly)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Liquibase 4.33
+        uses: ./actions/setup-liquibase
+        with:
+          version: "4.33.0"
+          edition: "secure"
+
+      - name: Run Liquibase Flow (4.33)
+        run: liquibase flow --flow-file=liquibase.flowfile.yaml
+        env:
+          LIQUIBASE_LICENSE_KEY: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
+          LIQUIBASE_COMMAND_URL: "jdbc:h2:mem:test"
+          LIQUIBASE_COMMAND_USERNAME: "sa"
+          LIQUIBASE_COMMAND_PASSWORD: ""
+          LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelog.xml"
+          LB_TEST_CHECKS: "T"
+          LB_TEST_DRIFT: "T"
+
+  test-liquibase-500:
+    name: Test Liquibase 5.0.0 (Exit code issue)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Liquibase 5.0.0
+        uses: ./actions/setup-liquibase
+        with:
+          version: "5.0.0"
+          edition: "secure"
+
+      - name: Run Liquibase Flow (5.0.0)
+        run: liquibase flow --flow-file=liquibase.flowfile.yaml
+        env:
+          LIQUIBASE_LICENSE_KEY: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
+          LIQUIBASE_COMMAND_URL: "jdbc:h2:mem:test"
+          LIQUIBASE_COMMAND_USERNAME: "sa"
+          LIQUIBASE_COMMAND_PASSWORD: ""
+          LIQUIBASE_COMMAND_CHANGELOG_FILE: "changelog.xml"
+          LB_TEST_CHECKS: "T"
+          LB_TEST_DRIFT: "T"

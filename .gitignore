@@ -1,0 +1,30 @@
+# Liquibase output files
+*.json
+*.html
+*.log
+liquibase.*.log
+
+# Reports
+*Report*.html
+*Report*.json
+Checks_*.html
+Diff_*.html
+Diff_*.json
+Rollback_*.html
+Snapshot_*.json
+Update_*.html
+
+# Sensitive files
+.env
+*.key
+*.pem
+liquibase.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.iml
