@@ -1,5 +1,4 @@
 # Liquibase output files
-*.json
 *.html
 *.log
 liquibase.*.log
@@ -11,7 +10,6 @@ Checks_*.html
 Diff_*.html
 Diff_*.json
 Rollback_*.html
-Snapshot_*.json
 Update_*.html
 
 # Sensitive files

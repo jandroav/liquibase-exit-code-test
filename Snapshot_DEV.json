@@ -1,0 +1,63 @@
+{
+  "snapshot": {
+    "created": "2025-09-30T15:27:57.534",
+    "database": {
+      "productVersion": "2.2.224 (2023-09-17)",
+      "shortName": "h2",
+      "majorVersion": "2",
+      "minorVersion": "2",
+      "user": "DBUSER",
+      "productName": "H2",
+      "url": "jdbc:h2:tcp://localhost:9090/mem:dev"
+    },
+    "objects": {
+      "liquibase.structure.core.Catalog": [
+        {
+          "catalog": {
+            "default": true,
+            "name": "DEV",
+            "snapshotId": "3150100"
+          }
+        }
+      ]
+      ,
+      "liquibase.structure.core.Schema": [
+        {
+          "schema": {
+            "catalog": "liquibase.structure.core.Catalog#3150100",
+            "default": true,
+            "name": "PUBLIC",
+            "snapshotId": "3150101"
+          }
+        }
+      ]
+      
+    },
+    "snapshotControl": {
+      "snapshotControl": {
+        "includedType": [
+          "com.datical.liquibase.ext.appdba.synonym.Synonym",
+          "com.datical.liquibase.ext.appdba.type.CompositeType",
+          "com.datical.liquibase.ext.appdba.type.DataTypeAttribute",
+          "com.datical.liquibase.ext.storedlogic.checkconstraint.CheckConstraint",
+          "com.datical.liquibase.ext.storedlogic.databasepackage.DatabasePackage",
+          "com.datical.liquibase.ext.storedlogic.databasepackage.DatabasePackageBody",
+          "com.datical.liquibase.ext.storedlogic.function.Function",
+          "com.datical.liquibase.ext.storedlogic.trigger.Trigger",
+          "liquibase.structure.core.Catalog",
+          "liquibase.structure.core.Column",
+          "liquibase.structure.core.ForeignKey",
+          "liquibase.structure.core.Index",
+          "liquibase.structure.core.PrimaryKey",
+          "liquibase.structure.core.Schema",
+          "liquibase.structure.core.Sequence",
+          "liquibase.structure.core.StoredProcedure",
+          "liquibase.structure.core.Table",
+          "liquibase.structure.core.UniqueConstraint",
+          "liquibase.structure.core.View"
+        ]
+        
+      }
+    }
+  }
+}
