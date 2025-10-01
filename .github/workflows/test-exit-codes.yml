@@ -8,12 +8,12 @@ on:
 jobs:
   test-liquibase-433:
     name: Test Liquibase 4.33 (Expected to fail properly)
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Liquibase
-        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v1
+        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v2
 
       - name: Run Liquibase Flow (4.33)
         run: liquibase flow --flow-file=liquibase.flowfile.yaml
@@ -40,7 +40,7 @@ jobs:
 
   test-liquibase-500:
     name: Test Liquibase 5.0.0 (Exit code issue)
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
