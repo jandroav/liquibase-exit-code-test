@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Liquibase
-        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v2
+        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v1
 
       - name: Run Liquibase Flow (4.33)
         run: liquibase flow --flow-file=liquibase.flowfile.yaml
@@ -45,7 +45,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Liquibase
-        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v2
+        uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v1
 
       - name: Run Liquibase Flow (5.0.0)
         run: liquibase flow --flow-file=liquibase.flowfile.yaml
