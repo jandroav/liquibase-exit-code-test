@@ -50,7 +50,7 @@ jobs:
       - name: Setup Liquibase
         uses: jbennett-liquibase/Demo_Composites/actions/setup-liquibase@v2
         with:
-          version: "5.0.0"
+          version: "DAT-20879"
           edition: "secure"
 
       - name: Run Liquibase Flow (5.0.0)
